@@ -1,0 +1,267 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Navanath N Latake — Python Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+<nav class="nav" id="navbar">
+  <div class="nav-inner">
+
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#contact" class="nav-cta">Hire Me</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <ul>
+    <li><a href="#about" class="mob-link">About</a></li>
+    <li><a href="#skills" class="mob-link">Skills</a></li>
+    <li><a href="#projects" class="mob-link">Projects</a></li>
+    <li><a href="#experience" class="mob-link">Experience</a></li>
+    <li><a href="#contact" class="mob-link">Contact</a></li>
+  </ul>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="about">
+  <div class="hero-left">
+    <div class="hero-eyebrow">
+      <span class="avail-dot"></span>
+      Available for new opportunities
+    </div>
+    <h1 class="hero-name">
+      Navanath<br>
+      <span class="name-outline">N. Latake</span>
+    </h1>
+    <div class="hero-role-line">
+      <span class="role-bar"></span>
+      Python &amp; Django Developer
+    </div>
+    <p class="hero-bio">
+      I build fast and reliable web applications with clean backend architecture.
+Specializing in Django, REST APIs, and scalable backend systems.</p>
+    <div class="hero-ctas">
+      <a href="#projects" class="btn-solid">View Projects</a>
+      <a href="#contact" class="btn-outline">Get in Touch</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <span class="stat-n">1<sup>+</sup></span>
+        <span class="stat-l">Year Exp.</span>
+      </div>
+      <div class="stat-sep"></div>
+      <div class="stat-item">
+        <span class="stat-n">4<sup>+</sup></span>
+        <span class="stat-l">Projects</span>
+      </div>
+      <div class="stat-sep"></div>
+      <div class="stat-item">
+        <span class="stat-n">2<sup>+</sup></span>
+        <span class="stat-l">Clients</span>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="profile-card">
+      <div class="pc-avatar">
+  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#08080f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+    <circle cx="12" cy="7" r="4"/>
+  </svg>
+</div>
+      <div class="pc-body">
+        <strong>Navanath N Latake</strong>
+        <span>Python Developer</span>
+      </div>
+      <div class="pc-chips">
+        <span>Django</span><span>Python</span><span>REST APIs</span><span>MySQL</span>
+      </div>
+      <div class="pc-loc">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Pune, Maharashtra · Remote OK
+      </div>
+    </div>
+    <div class="deco-circles">
+      <div class="dc dc-1"></div>
+      <div class="dc dc-2"></div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="section s-alt" id="skills">
+  <div class="container">
+    <div class="sec-eyebrow"><span>01</span> Skills &amp; Expertise</div>
+    <div class="skills-layout">
+      <div class="skills-intro">
+        <h2 class="sec-h2">Technologies<br>I Work With</h2>
+        <p class="sec-p">A focused technology stack built through hands-on projects — every skill listed is one I have applied in real development work.</p>
+      </div>
+      <div class="skills-list">
+        {% for skill in skills %}
+        <div class="sk-row" style="--i:{{ forloop.counter0 }}">
+          <div class="sk-meta">
+            <span class="sk-name">{{ skill.name }}</span>
+            <span class="sk-cat">{{ skill.category }}</span>
+          </div>
+          <div class="sk-track">
+            <div class="sk-fill" style="--p:{{ skill.level }}%"></div>
+          </div>
+          <span class="sk-pct">{{ skill.level }}%</span>
+        </div>
+        {% empty %}
+        <p class="empty-note">Add skills via the admin panel.</p>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="section" id="projects">
+  <div class="container">
+    <div class="sec-eyebrow"><span>02</span> Selected Work</div>
+    <h2 class="sec-h2 centered">Featured Projects</h2>
+    <div class="proj-grid">
+      {% for project in projects %}
+      <article class="proj-card {% if project.featured %}is-feat{% endif %}">
+        <div class="pc-top">
+          <span class="pc-index">0{{ forloop.counter }}</span>
+          {% if project.featured %}<span class="feat-tag">Featured</span>{% endif %}
+        </div>
+        <h3 class="pc-title">{{ project.title }}</h3>
+        <p class="pc-desc">{{ project.description }}</p>
+        <div class="pc-stack">
+          {% for tech in project.get_tech_list %}
+          <span>{{ tech }}</span>
+          {% endfor %}
+        </div>
+        <div class="pc-links">
+          {% if project.github_url %}
+          <a href="{{ project.github_url }}" class="pc-link" target="_blank">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            Source Code
+          </a>
+          {% endif %}
+          {% if project.live_url %}
+          <a href="{{ project.live_url }}" class="pc-link pc-live" target="_blank">Live Demo →</a>
+          {% endif %}
+        </div>
+      </article>
+      {% empty %}
+      <p class="empty-note" style="grid-column:1/-1">Add projects via the admin panel.</p>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="section s-alt" id="experience">
+  <div class="container">
+    <div class="sec-eyebrow"><span>03</span> Career History</div>
+    <h2 class="sec-h2">Work Experience</h2>
+    <div class="exp-list">
+      {% for exp in experiences %}
+      <div class="exp-item">
+        <div class="exp-period">{{ exp.duration }}</div>
+        <div class="exp-body">
+          <h3 class="exp-role">{{ exp.role }}</h3>
+          <span class="exp-co">{{ exp.company }}</span>
+          <p class="exp-desc">{{ exp.description }}</p>
+        </div>
+      </div>
+      {% empty %}
+      <p class="empty-note">Add experience via the admin panel.</p>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section contact-sec" id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="cg-left">
+        <div class="sec-eyebrow"><span>04</span> Get In Touch</div>
+        <h2 class="sec-h2">Let's Work<br>Together</h2>
+        <p class="sec-p">I'm open to freelance projects, full-time opportunities, and interesting collaborations. Feel free to reach out if you'd like to work together.</p>
+        <ul class="cg-details">
+          <li>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 7L2 7"/></svg>
+            <a href="mailto:navanath.latake01@gmail.com">navanath.latake01@gmail.com</a>
+          </li>
+          <li>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Pune, Maharashtra · Remote OK
+          </li>
+          <li>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+            <a href="https://linkedin.com/in/navanath-latake" target="_blank">linkedin.com/navanath-latake</a>
+          </li>
+          <li>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+            <a href="https://github.com/navanath-latake" target="_blank">github.com/navanath-latake</a>
+          </li>
+        </ul>
+      </div>
+      <div class="cg-right">
+        {% if messages %}{% for message in messages %}
+        <div class="form-ok">✓ {{ message }}</div>
+        {% endfor %}{% endif %}
+        <form method="post" class="cf" novalidate>
+          {% csrf_token %}
+          <div class="cf-field">
+            <label>Full Name</label>
+            {{ form.name }}
+            {% if form.name.errors %}<span class="cf-err">{{ form.name.errors.0 }}</span>{% endif %}
+          </div>
+          <div class="cf-field">
+            <label>Email Address</label>
+            {{ form.email }}
+            {% if form.email.errors %}<span class="cf-err">{{ form.email.errors.0 }}</span>{% endif %}
+          </div>
+          <div class="cf-field">
+            <label>Message</label>
+            {{ form.message }}
+            {% if form.message.errors %}<span class="cf-err">{{ form.message.errors.0 }}</span>{% endif %}
+          </div>
+          <button type="submit" class="btn-solid">Send Message →</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-row">
+
+      <p>© 2026 Navanath N Latake · Built with Django</p>
+      <div class="footer-links">
+        <a href="https://github.com/navanath-latake" target="_blank">GitHub</a>
+        <a href="https://linkedin.com/navanath-latake" target="_blank">LinkedIn</a>
+        <a href="/admin/">Admin</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>

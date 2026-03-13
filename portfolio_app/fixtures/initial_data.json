@@ -1,0 +1,63 @@
+[
+  {"model": "portfolio_app.skill", "pk": 1, "fields": {"name": "Python", "level": 92, "category": "Backend", "order": 1}},
+  {"model": "portfolio_app.skill", "pk": 2, "fields": {"name": "Django", "level": 90, "category": "Backend", "order": 2}},
+  {"model": "portfolio_app.skill", "pk": 3, "fields": {"name": "JavaScript", "level": 85, "category": "Frontend", "order": 3}},
+  {"model": "portfolio_app.skill", "pk": 4, "fields": {"name": "React", "level": 80, "category": "Frontend", "order": 4}},
+  {"model": "portfolio_app.skill", "pk": 5, "fields": {"name": "PostgreSQL", "level": 78, "category": "Database", "order": 5}},
+  {"model": "portfolio_app.skill", "pk": 6, "fields": {"name": "Docker", "level": 75, "category": "DevOps", "order": 6}},
+  {"model": "portfolio_app.skill", "pk": 7, "fields": {"name": "REST APIs", "level": 88, "category": "Backend", "order": 7}},
+  {"model": "portfolio_app.skill", "pk": 8, "fields": {"name": "Git", "level": 85, "category": "DevOps", "order": 8}},
+
+  {"model": "portfolio_app.project", "pk": 1, "fields": {
+    "title": "E-Commerce Platform",
+    "description": "A full-featured e-commerce platform with product management, cart, payments via Stripe, and an admin dashboard. Supports multiple vendors and real-time inventory tracking.",
+    "tech_stack": "Django, PostgreSQL, Redis, Stripe, Celery",
+    "github_url": "https://github.com",
+    "live_url": "https://example.com",
+    "featured": true,
+    "order": 1,
+    "created_at": "2024-01-01 00:00:00"
+  }},
+  {"model": "portfolio_app.project", "pk": 2, "fields": {
+    "title": "Task Management API",
+    "description": "RESTful API for a collaborative task manager with JWT auth, role-based permissions, real-time notifications via WebSockets, and full API documentation.",
+    "tech_stack": "Django REST Framework, JWT, WebSockets, Swagger",
+    "github_url": "https://github.com",
+    "live_url": "",
+    "featured": true,
+    "order": 2,
+    "created_at": "2024-02-01 00:00:00"
+  }},
+  {"model": "portfolio_app.project", "pk": 3, "fields": {
+    "title": "Analytics Dashboard",
+    "description": "Real-time analytics dashboard with interactive charts, custom date ranges, CSV export, and automated reporting. Processes thousands of events per minute.",
+    "tech_stack": "Django, Chart.js, Pandas, Celery, Redis",
+    "github_url": "https://github.com",
+    "live_url": "https://example.com",
+    "featured": false,
+    "order": 3,
+    "created_at": "2024-03-01 00:00:00"
+  }},
+
+  {"model": "portfolio_app.experience", "pk": 1, "fields": {
+    "company": "TechCorp Solutions",
+    "role": "Senior Backend Developer",
+    "duration": "2022 – Present",
+    "description": "Lead development of microservices architecture serving 500K+ users. Reduced API response time by 40% through caching and query optimization.",
+    "order": 1
+  }},
+  {"model": "portfolio_app.experience", "pk": 2, "fields": {
+    "company": "StartupXYZ",
+    "role": "Full Stack Developer",
+    "duration": "2020 – 2022",
+    "description": "Built the core product from scratch using Django and React. Implemented CI/CD pipelines, automated testing, and deployed on AWS.",
+    "order": 2
+  }},
+  {"model": "portfolio_app.experience", "pk": 3, "fields": {
+    "company": "Freelance",
+    "role": "Web Developer",
+    "duration": "2018 – 2020",
+    "description": "Delivered 20+ web projects for small businesses. Specialized in Django CMS solutions, REST APIs, and performance optimization.",
+    "order": 3
+  }}
+]
